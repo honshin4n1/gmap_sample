@@ -3,8 +3,8 @@
 <h1><%= @map&.address %></h1>
 <h1><%= @map&.latitude %></h1> 
 <h1><%= @map&.longitude %></h1>
-<%# <div id='map'>
-</div> %>
+<div id='map'>
+</div>
 
 <style>
   #map{
@@ -12,5 +12,21 @@
   }
 </style>
 
+<script>
+let mapInstance
+function(){
+  // 位置情報をもつ変数を用意
+  let pos = new google.maps.LatLng(
+   <%= @map.latitude %>, //latitude
+   <%= @map.longitude %>  //longitude
+  );
+
+  mapInstance.setCenter(pos)
+  let marker = new google.maps.Marker({
+    map: mapInstance,
+    position: pos
+  });
+}
+</script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>
