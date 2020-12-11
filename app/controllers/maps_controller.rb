@@ -11,7 +11,7 @@ class MapsController < ApplicationController
   end
 
   def show
-    @map = Map.find_by(params[:id])
+    @map = Map.find_by!(params[:id])
   end
 
   # def map
