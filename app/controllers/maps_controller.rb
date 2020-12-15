@@ -11,7 +11,8 @@ class MapsController < ApplicationController
   end
 
   def show
-    @map = Map.find_by!(params[:id])
+    @map = Map.find(params[:id])
+    gon.map = @map
   end
 
   # def map
