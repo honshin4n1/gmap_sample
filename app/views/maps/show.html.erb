@@ -13,21 +13,20 @@
 </style>
 
 <script>
-let map
-function initMap(){
-  // geocoderを初期化
-
-  mapInstace = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 33.5899, lng: 130.402},
-  zoom: 16
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  const uluru = { lat: -25.344, lng: 131.036 };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 18,
+    center: uluru,
   });
-  function codeAddress(){
-  // 入力を取得
-      var marker = new google.maps.Marker({
-          map: map,
-          position: {lat: 33.5899, lng: 130.402}
-      });
-  }
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
 }
 </script>
 
